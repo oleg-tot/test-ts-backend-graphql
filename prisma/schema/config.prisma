@@ -5,6 +5,14 @@ generator client {
   runtime      = "nodejs"
 }
 
+generator nestgraphql {
+  provider           = "prisma-nestjs-graphql"
+  output             = "../../src/@generated"
+  importExtension    = "js"
+  prismaClientImport = "../../generated/prisma/client.js"
+  reExport           = Single
+}
+
 datasource db {
   provider = "postgresql"
 }

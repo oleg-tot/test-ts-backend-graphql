@@ -1,6 +1,7 @@
 node_modules
 .yarn
 src/generated
+src/@generated
 dist
 coverage
 schema.gql
