@@ -1,0 +1,8 @@
+node_modules
+.yarn
+src/generated
+dist
+coverage
+schema.gql
+yarn.lock
+prisma/migrations
