@@ -1,0 +1,99 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+"""Достижение на конкретном месте работы"""
+type Achievement {
+  description: String!
+  id: ID!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+"""Опыт работы"""
+type Experience {
+  achievements: [Achievement!]!
+  company: String!
+  endDate: DateTime
+  id: ID!
+
+  """Работает ли специалист здесь сейчас"""
+  isCurrent: Boolean!
+  location: String
+  position: String!
+  startDate: DateTime!
+  summary: String
+}
+
+"""Ссылка на профессиональный ресурс"""
+type Link {
+  id: ID!
+  label: String!
+  type: LinkType!
+  url: String!
+}
+
+"""Тип профессиональной ссылки в профиле"""
+enum LinkType {
+  EMAIL
+  GITHUB
+  LINKEDIN
+  TELEGRAM
+  WEBSITE
+}
+
+"""Публичный профиль специалиста"""
+type Profile {
+  avatarUrl: String
+  description: String!
+  email: String
+  experience: [Experience!]!
+  headline: String!
+  id: ID!
+  links: [Link!]!
+  location: String
+  name: String!
+  projects: [Project!]!
+  skills: [Skill!]!
+}
+
+"""Проект или pet-project"""
+type Project {
+  description: String
+  endDate: DateTime
+  featured: Boolean!
+  id: ID!
+  name: String!
+  repositoryUrl: String
+  skills: [Skill!]!
+  startDate: DateTime
+  url: String
+}
+
+type Query {
+  """Возвращает основной профиль специалиста"""
+  profile: Profile
+}
+
+"""Профессиональный навык"""
+type Skill {
+  category: SkillCategory!
+  id: ID!
+
+  """Уровень владения от 1 до 5"""
+  level: Int!
+  name: String!
+}
+
+"""Категория навыка"""
+enum SkillCategory {
+  DATABASE
+  DEVOPS
+  FRAMEWORK
+  LANGUAGE
+  SOFT_SKILL
+  TOOLING
+}
