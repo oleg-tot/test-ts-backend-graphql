@@ -1,0 +1,11 @@
+model Link {
+  id        String   @id @default(cuid())
+  profileId String
+  label     String
+  url       String
+  type      LinkType
+  order     Int      @default(0)
+  profile   Profile  @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@index([profileId])
+}

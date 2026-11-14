@@ -1,0 +1,16 @@
+enum LinkType {
+  GITHUB
+  LINKEDIN
+  WEBSITE
+  EMAIL
+  TELEGRAM
+}
+
+enum SkillCategory {
+  LANGUAGE
+  FRAMEWORK
+  DATABASE
+  DEVOPS
+  TOOLING
+  SOFT_SKILL
+}
