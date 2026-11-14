@@ -1,16 +1,4 @@
 model Profile {
-  id          String   @id
-  name        String
-  headline    String
-  description String
-  location    String?
-  email       String?
-  avatarUrl   String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  links      Link[]
-  skills     Skill[]
-  experience Experience[]
-  projects   Project[]
+  id   String @id
+  name String
 }
