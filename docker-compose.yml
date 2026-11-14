@@ -1,0 +1,29 @@
+name: business-card
+
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: business_card
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres -d business_card']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  s3mock:
+    image: adobe/s3mock:latest
+    environment:
+      COM_ADOBE_TESTING_S3MOCK_STORE_INITIAL_BUCKETS: avatars
+    ports:
+      - '9090:9090'
+      - '9191:9191'
+
+volumes:
+  postgres_data:
